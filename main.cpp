@@ -50,7 +50,7 @@ int main() {
     Node* hashTable[MAX_SLOTS] = {nullptr};
 
     for (int i = 0; i < n; i++) {
-        int hashValue = hash_function(text[i]) % k;
+        int hashValue = hash_function(texts[i]) % k;
 
         Node *newNode = new Node{texts[i], nullptr};
 
@@ -80,7 +80,7 @@ int main() {
     // Step 5: Print the lengths of each slot in the hash table
     cout << "==== Printing the slot lengths ====" << endl;
     // TODO: Print the lengths of each slot in your hash table
-    for (int = 0; i < MAX_SLOTS; i++) {
+    for (int i = 0; i < MAX_SLOTS; i++) {
         Node* current = hashTable[i];
         int slotLength = 0;
         while (current != nullptr) {
