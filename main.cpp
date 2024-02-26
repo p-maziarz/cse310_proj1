@@ -57,10 +57,6 @@ int main() {
         return 1;
     }
 
-    //clear cin buffer to handle any remaining characters
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-    cin.clear();
-
     //initializing hash table & using the hash function to enter the data into the slots
     const int MAX_SLOTS = 100;
     Node* hashTable[MAX_SLOTS] = {nullptr};
