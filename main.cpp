@@ -71,7 +71,10 @@ int main() {
     for (int i = 0; i < n; i++) {
         int hashValue = hash_function(texts[i]) % k;
 
-        Node *newNode = new Node{texts[i], nullptr};
+        Node *newNode = new Node;
+        newNode->value = texts[i];
+        newNode->next = nullptr;
+
 
         if (hashTable[hashValue] == nullptr) {
             hashTable[hashValue] = newNode;
@@ -134,7 +137,7 @@ int main() {
             current = current->next;
         }
         if (slotLength > 0) {
-            sumSquaredDifferences += pow(slotLength - averageLength, 2);
+            sumSquaredDifferences += pow(slotLength - averageLength, 2.0f);
         }
     }
     float standardDeviation = sqrt(sumSquaredDifferences / totalSlots);
