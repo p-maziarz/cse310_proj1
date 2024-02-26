@@ -5,7 +5,7 @@ using namespace std;
 
 int hash_function(string text) {
     const int prime = 31;  //prime number for better distribution
-    const int base = 26;   //using base-26 for second number
+    const int base = 26;   //using base-26 for second letter
 
     //hash calculation based on the characters in the input text
     int hashValue = 0;
