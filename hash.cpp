@@ -1,23 +1,24 @@
 #include <iostream>
 #include <string>
 #include "hash.h"
-#include <list>
 using namespace std;
 
 int hash_function(string text) {
-    const int prime = 31;  // A prime number for better distribution
+    const int prime = 31;  //prime number for better distribution
+    const int base = 26;   //using base-26 for second number
 
-    // Hash calculation based on the characters in the input text
+    //hash calculation based on the characters in the input text
     int hashValue = 0;
 
-    for (char ch : text) {
-        // Use a simple formula, you can modify this based on your design
-        hashValue = (hashValue * prime) + static_cast<int>(ch);
-    }
+    //use a simple formula for the first letter using ASCII value
+    hashValue = (hashValue * prime) + static_cast<int>(text[0]);
 
-    // Ensure the hash value is positive (absolutely necessary for array indexing)
+    //use a different system for the second letter
+    hashValue = (hashValue * base) + (text.length() > 1 ? (text[1] - 'a') : 0);
+
+    //ensure the hash value is positive
     hashValue = (hashValue < 0) ? -hashValue : hashValue;
 
-    // Return the calculated hash value
+    //return calculated hash value
     return hashValue;
 }
