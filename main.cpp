@@ -140,5 +140,5 @@ int main() {
     }
     float standardDeviation = sqrt(sumSquaredDifferences / totalSlots);
 
-    cout << "Standard Deviation (\u03C3): " << fixed << setprecision(4) << standardDeviation << endl;
+    cout << fixed << setprecision(4) << standardDeviation << endl;
 }
