@@ -1,9 +1,11 @@
 /*
 CSE 310 Hash Function DIY Contest
 Instructor: Yiran "Lawrence" Luo
-Your name(s): 
+Your name(s):
 Your team alias: 
 */
+
+//TODO: make it only print the specified # of slots, not a fixed 100 slots
 
 #include <iostream>
 #include <iomanip>
@@ -107,7 +109,7 @@ int main() {
     }
 
     //print the standard deviation of all slot lengths in the hash table
-    //std deviation (latex form): \sigma = \sqrt{\frac{1}{n}\sum_{i=1}^{N}(x_i-\mu)^2}
+    //std deviation (LaTeX form): \sigma = \sqrt{\frac{1}{n}\sum_{i=1}^{N}(x_i-\mu)^2}
     cout << "==== Printing the standard variance ====" << endl;
     //calc avg slot length
     int totalSlots = 0;
