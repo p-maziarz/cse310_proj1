@@ -60,6 +60,10 @@ int main() {
         return 1;
     }
 
+    //clear cin buffer to handle any remaining characters
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    cin.clear();
+
     //initializing hash table & using the hash function to enter the data into the slots
     const int MAX_SLOTS = 100;
     Node* hashTable[MAX_SLOTS] = {nullptr};
@@ -104,8 +108,36 @@ int main() {
     }
 
     //print the standard deviation of all slot lengths in the hash table
+    //std deviation (latex form): \sigma = \sqrt{\frac{1}{n}\sum_{i=1}^{N}(x_i-\mu)^2}
     cout << "==== Printing the standard variance ====" << endl;
-    // TODO: calculate and print the standard deviation of all slot lengths in your hash table
+    //calc avg slot length
+    int totalSlots = 0;
+    int totalLength = 0;
+    for (int i = 0; i < MAX_SLOTS; i++) {
+        Node* current = hashTable[i];
+        while (current != nullptr) {
+            totalLength++;
+            current = current->next;
+        }
+        if (totalLength > 0) {
+            totalSlots++;
+        }
+    }
+    float averageLength = static_cast<float>(totalLength) / totalSlots;
+    //calc sum of squared differences
+    float sumSquaredDifferences = 0.0;
+    for (int i = 0; i < MAX_SLOTS; i++) {
+        Node* current = hashTable[i];
+        int slotLength = 0;
+        while (current != nullptr) {
+            slotLength++;
+            current = current->next;
+        }
+        if (slotLength > 0) {
+            sumSquaredDifferences += pow(slotLength - averageLength, 2);
+        }
+    }
+    float standardDeviation = sqrt(sumSquaredDifferences / totalSlots);
 
-    return 0;
+    cout << "Standard Deviation (\u03C3): " << fixed << setprecision(4) << standardDeviation << endl;
 }
