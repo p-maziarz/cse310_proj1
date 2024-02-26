@@ -24,6 +24,11 @@ int main() {
     int n = 0;
     string texts[500];
 
+    //get user input for the number of slots
+    cout << "Enter the number of hash table slots (5 <= k <= 100): ";
+    cin >> k;
+
+
     // WARNING: Start of the tokenizer that loads the input from std::cin, DO NOT change this part!
     cin >> k;
     string line;
@@ -43,9 +48,19 @@ int main() {
     //   ./encoder < inputs/sample_input.txt
     // which puts out the placeholders only.
 
+    //validating input for number of slots
+    if (k < 5 || k > 100) {
+        cerr << "Invalid number of inputs." << endl;
+        return 1;
+    }
 
-    // Step 3: Initialize your hash table and populate it using your hash function
-    // TODO: Create your hash table data structure and use the hash function to populate it
+    //validating input for number of tokens
+    if (n == 0) {
+        cerr << "No tokens entered. Exiting." << endl;
+        return 1;
+    }
+
+    //initializing hash table & using the hash function to enter the data into the slots
     const int MAX_SLOTS = 100;
     Node* hashTable[MAX_SLOTS] = {nullptr};
 
@@ -65,9 +80,8 @@ int main() {
         }
     }
 
-    // Step 4: Print the contents of the first 5 slots in the hash table
+    //print the contents of the first 5 slots in the hash table
     cout << "==== Printing the contents of the first 5 slots ====" << endl;
-    // TODO: Print the contents of the first 5 slots in your hash table
     for (int i = 0; i < min(5, MAX_SLOTS); i++) {
         Node* current = hashTable[i];
         while (current != nullptr) {
@@ -77,9 +91,8 @@ int main() {
         cout << endl;
     }
 
-    // Step 5: Print the lengths of each slot in the hash table
+    //print the lengths of each slot in the hash table
     cout << "==== Printing the slot lengths ====" << endl;
-    // TODO: Print the lengths of each slot in your hash table
     for (int i = 0; i < MAX_SLOTS; i++) {
         Node* current = hashTable[i];
         int slotLength = 0;
@@ -90,9 +103,9 @@ int main() {
         cout << "Slot " << i << ": " << slotLength << endl;
     }
 
-    // Step 6: Print the standard deviation of all slot lengths in the hash table
+    //print the standard deviation of all slot lengths in the hash table
     cout << "==== Printing the standard variance ====" << endl;
-    // TODO: Calculate and print the standard deviation of all slot lengths in your hash table
+    // TODO: calculate and print the standard deviation of all slot lengths in your hash table
 
     return 0;
 }
