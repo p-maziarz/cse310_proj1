@@ -1,3 +1,6 @@
+#ifndef HASH_H
+#define HASH_H
+
 #include <iostream>
 #include <string>
 #include <cmath>
@@ -6,3 +9,5 @@
 using namespace std;
 
 int hash_function(string text);
+
+#endif
