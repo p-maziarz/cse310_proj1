@@ -1,7 +1,7 @@
 /*
 CSE 310 Hash Function DIY Contest
 Instructor: Yiran "Lawrence" Luo
-Your name(s):
+Your name(s): 
 Your team alias: 
 */
 
@@ -22,12 +22,7 @@ int main() {
 
     int k = 0;
     int n = 0;
-    string texts[500];
-
-    //get user input for the number of slots
-    cout << "Enter the number of hash table slots (5 <= k <= 100): ";
-    cin >> k;
-
+    string texts[MAX_TOKENS];
 
     // WARNING: Start of the tokenizer that loads the input from std::cin, DO NOT change this part!
     cin >> k;
@@ -91,8 +86,9 @@ int main() {
     cout << "==== Printing the contents of the first 5 slots ====" << endl;
     for (int i = 0; i < min(5, MAX_SLOTS); i++) {
         Node* current = hashTable[i];
+        cout << "Slot " << i << ": ";
         while (current != nullptr) {
-            cout << "Slot " << i << ": " << current->value << " ";
+            cout << current->value << " ";
             current = current->next;
         }
         cout << endl;
