@@ -1,7 +1,7 @@
 /*
 CSE 310 Hash Function DIY Contest
 Instructor: Yiran "Lawrence" Luo
-Your name(s):
+Your name(s): Parker Maziarz, Jade ...
 Your team alias: 
 */
 
@@ -80,9 +80,9 @@ int main() {
         }
     }
 
-    //print the contents of the first 5 slots in the hash table
+    // Print the contents of the first 5 slots in the hash table
     cout << "==== Printing the contents of the first 5 slots ====" << endl;
-    for (int i = 0; i < min(5, MAX_SLOTS); i++) {
+    for (int i = 0; i < min(5, k); i++) {
         Node* current = hashTable[i];
         cout << "Slot " << i << ": ";
         while (current != nullptr) {
@@ -92,9 +92,9 @@ int main() {
         cout << endl;
     }
 
-    //print the lengths of each slot in the hash table
+    // Print the lengths of each slot in the hash table
     cout << "==== Printing the slot lengths ====" << endl;
-    for (int i = 0; i < MAX_SLOTS; i++) {
+    for (int i = 0; i < k; i++) {
         Node* current = hashTable[i];
         int slotLength = 0;
         while (current != nullptr) {
@@ -103,6 +103,7 @@ int main() {
         }
         cout << "Slot " << i << ": " << slotLength << endl;
     }
+
 
     //print the standard deviation of all slot lengths in the hash table
     //std deviation (LaTeX form): \sigma = \sqrt{\frac{1}{n}\sum_{i=1}^{N}(x_i-\mu)^2}
