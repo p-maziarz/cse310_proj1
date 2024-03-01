@@ -1,8 +1,8 @@
 /*
 CSE 310 Hash Function DIY Contest
 Instructor: Yiran "Lawrence" Luo
-Your name(s): Parker Maziarz, Jade ...
-Your team alias: 
+Your name(s): Parker Maziarz, Jade Aragon
+Your team alias: My Chemical Ice Cream 
 */
 
 //TODO: make it only print the specified # of slots, not a fixed 100 slots
@@ -63,7 +63,7 @@ int main() {
 
     for (int i = 0; i < n; i++) {
         int hashValue = hash_function(texts[i]) % k;
-
+        
         Node *newNode = new Node;
         newNode->value = texts[i];
         newNode->next = nullptr;
