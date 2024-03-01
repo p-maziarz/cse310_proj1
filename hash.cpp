@@ -4,24 +4,19 @@
 using namespace std;
 
 int hash_function(string text) {
-    const int prime = 31;  //prime number for better distribution
-    const int base2 = 26;   //using base-26 for second letter
-    const int base3 = 19;
+    int prime = 31;  //prime number for better distribution
+    const int base2 = 26; //using base-26 for second letter
+    const int base3 = 19; //base-19 for third letter
+    const int base4 = 13; //base-13 for fourth letter 
+    const int base5 = 7; //base-7 for fifth letter 
+    const int base6 = 5; 
 
-    //hash calculation based on the characters in the input text
-    int hashValue = prime*static_cast<int>(text[0]);
+    int hashValue = text.length();
 
-    //use a simple formula for the first letter using ASCII value
-    hashValue = (hashValue * prime) + static_cast<int>(text[0]);
-
-    //use a different system for the second letter
-    hashValue = (hashValue * base2) + (text.length() > 1 ? (text[1] - 'a') : 0);
-
-    //use base-19 for third char
-    hashValue += base3*static_cast<int>(text[2]);
-
-    //ensure the hash value is positive
-    hashValue = (hashValue < 0) ? -hashValue : hashValue;
+    for (int i =0; i < text.length()-1; i++){ 
+        hashValue += prime*text[i];
+        prime -=4;
+    }
 
     //return calculated hash value
     return hashValue;
