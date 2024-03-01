@@ -1,4 +1,1 @@
-CSE 310 Hash Function DIY Contest
-Instructor: Yiran "Lawrence" Luo
-Your name(s): 
-Your team alias: 
+Our hashing algorithm takes all characters of each key and multiplies them by a (usually) prime number that decrements by 4 for each character of the key and adds those values together. This means that each key has a unique hash value based on the number of characters it has, the character order, and the ASCII value of each character. We then take hash value modulo k in order to get an even distribution on keys in each slot. This means that no matter how long the strings are or the ASCII values of its first character(or so), the placement of the keys will not be associated with alphabetical order or length.
